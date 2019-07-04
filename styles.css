@@ -224,7 +224,7 @@ p {
   box-shadow: 4px 41px 47px -29px rgba(0,0,0,.1);
   padding: 32px;
   z-index: 10;
-  transform: translateY(550px);
+  transform: translateY(350px);
   color: #212121;
 }
 
@@ -325,7 +325,7 @@ p {
   padding: 0;
 }
   .featured .imakard-container {
-    transform: translateY(-370px);
+    transform: translateY(-120px);
     max-width: 1280px;
     margin: 0 auto;
   }
