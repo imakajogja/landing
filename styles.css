@@ -322,12 +322,12 @@ p {
   margin-right: auto;
   margin-bottom: 30px;
 }
-  .featured-section .section-title,   .featured .section-title , .team-section .section-title {
+  .section-title {
     margin-left: 40px;
     padding-bottom: 24px;
     font-weight: 300;
   }
-  .featured-section .section-title h5, .team-section .section-title h5 {
+  .section-title h5 {
     font-size: 3.5rem;
     line-height: 4rem;
     font-weight: 300;
@@ -335,7 +335,7 @@ p {
     letter-spacing: .0625rem;
     margin: 0;
   }
-  .featured-section .section-title h6, .team-section .section-title h6 {
+  .section-title h6 {
     text-transform: uppercase;
     font-size: 14px;
     line-height: 1.25rem;
@@ -680,4 +680,12 @@ p {
   .imaka-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
+}
+.discover-us {
+  background: #fff;
+}
+.discover-us-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 0;
 }
