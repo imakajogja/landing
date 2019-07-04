@@ -296,17 +296,17 @@ p {
   height: 400px;
 }
 .featured-section {
-  padding: 300px 0;
+  padding: 300px 0 0;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
 }
-  .featured-section .section-title,   .featured .section-title {
+  .featured-section .section-title,   .featured .section-title , .team-section .section-title {
     margin-left: 40px;
     padding-bottom: 24px;
     font-weight: 300;
   }
-  .featured-section .section-title h5 {
+  .featured-section .section-title h5, .team-section .section-title h5 {
     font-size: 3.5rem;
     line-height: 4rem;
     font-weight: 300;
@@ -314,7 +314,7 @@ p {
     letter-spacing: .0625rem;
     margin: 0;
   }
-  .featured-section .section-title h6 {
+  .featured-section .section-title h6, .team-section .section-title h6 {
     text-transform: uppercase;
     font-size: 14px;
     line-height: 1.25rem;
@@ -323,11 +323,11 @@ p {
   }
 .featured {
   padding: 0;
-  max-width: 1280px;
-  margin: 0 auto;
 }
   .featured .imakard-container {
-    transform: translateY(-120px);
+    transform: translateY(-370px);
+    max-width: 1280px;
+    margin: 0 auto;
   }
   .featured .imakard-container a .material-icons {
     margin-top: 30px;
@@ -376,6 +376,9 @@ p {
     display: block;
     color: #000;
   }
+  .imakard-container a:hover {
+    color:#444!important;
+  }
   .imakard-container a:hover ~ .parallax {
     -webkit-transform: scale(20);
     transform: scale(20);
@@ -390,6 +393,7 @@ p {
   .imakard-container .mdl-card__media {
     overflow: hidden;
     background: transparent;
+    z-index: 1;
   }
 
     .imakard-container .mdl-card__media img {
@@ -407,6 +411,7 @@ p {
     height: auto;
     font-size:18px;
     font-weight: 500;
+    z-index: 1;
   }
 
   .imakard-container .mdl-card__supporting-text {
@@ -431,6 +436,115 @@ p {
     font-size: 16px;
   }
 
+.team-section {
+  max-width: 1280px;
+  margin: 60px auto 30px;
+}
+.team-section .mdl-card {
+  min-height: auto;
+  box-shadow: 0 12px 32px 0 rgba(0,0,0,.08);
+  border-radius: 5px;
+}
+.team-section .information {
+    display: -webkit-box;
+    display: flex;
+    max-height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.team-section .information .profile-img {
+    display: -webkit-box;
+    display: flex;
+    height: 120px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    transition: all 0.45s ease-in-out;
+    width: 120px;
+    z-index: 2;
+    vertical-align: middle;
+}
+.team-section .information:hover .profile-img {
+  transform: translateX(-400px);
+}
+.team-section .information .social-media {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 25px;
+  z-index: 1;
+}
+.team-section .information .social-media a {
+  background: #212121;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  float: left;
+  margin-right: 3px;
+}
+.team-section .information .social-media a svg {
+  vertical-align: middle;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.team-section .information:after {
+    background-color: #ffcc00;
+    border-radius: 50%;
+    content: "";
+    height: 20px;
+    left: 20%;
+    pointer-events: none;
+    position: absolute;
+    top: 40%;
+    transition: -webkit-transform .4s;
+    transition: transform .4s;
+    transition: transform .4s,-webkit-transform .4s;
+    width: 20px;
+}
+.team-section .information:hover:after {
+    -webkit-transform: scale(100);
+    transform: scale(100);
+    transition: -webkit-transform .75s ease-in-out;
+    transition: transform .75s ease-in-out;
+    transition: transform .75s ease-in-out,-webkit-transform .75s ease-in-out;
+}
+.team-section .summary {
+  margin:20px 25px;
+}
+.team-section .summary a {
+  position: absolute;
+  right: 10px;
+}
+.team-section .summary h4 {
+  margin:0;
+  font-size:18px;
+  font-weight: 500;
+}
+.team-section .summary label {
+  font-size:12px;
+  text-transform: uppercase;
+}
+.team-section .summary h5 {
+  margin: 0;
+  font-size:14px;
+}
+.team-section .summary h5, .team-section .summary h4, .team-section .summary label {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-flex: 2;
+    flex-grow: 2;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+}
+@media only screen and (min-width: 1024px) {
+  .team-section .information {
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+  }
+}
 .imaka-footer {
   background-color: #f3f3f3;
   padding: 40px 80px;
