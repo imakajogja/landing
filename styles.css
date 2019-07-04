@@ -176,7 +176,10 @@ p {
   background: url('images/family.jpg') center 30% no-repeat;
   background-size: cover;
 }
-
+.imaka-be-together-section .imaka-banner {
+  margin:0 auto;
+  max-width: 1250px;
+}
 .logo-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
@@ -184,26 +187,41 @@ p {
   font-weight: 500;
 }
 
-.slogan-imaka {
+.logo-font.slogan-imaka {
   font-size: 5rem;
   line-height: 5.5rem;
   padding-top: 160px;
-  font-weight: 500;
+  font-weight: 300;
 }
-
+.logo-font.about {
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 1.75rem;
+  font-weight: 300;
+  letter-spacing: .3px;
+  width: calc(100% - 250px);
+}
 .join-circle {
   font-size: 21px;
-  padding-top: 370px;
+  margin-top: 50px;
 }
-
   .join-circle a {
     text-decoration: none;
-    color: #1cb39b;
-    font-weight: 500;
+    color: #fff!important;
+    border:2px solid #fff;
+    font-weight: 400;
     padding: 14px 20px;
-    border-radius: 5px;
-    background: #fff;
+    border-radius: 100px;
     font-family: "Roboto";
+    letter-spacing: .0625rem;
+    text-align: center;
+    transition: all 0.35s ease-in-out;
+  }
+  .join-circle a:hover {
+    background: #ffcc00;
+    color: #212121!important;
+    border-color: #ffcc00;
+    box-shadow: -6px 20px 40px 0 #ffcc0010;
   }
 
 .our-family {
@@ -302,6 +320,7 @@ p {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
 }
   .featured-section .section-title,   .featured .section-title , .team-section .section-title {
     margin-left: 40px;
@@ -439,8 +458,12 @@ p {
   }
 
 .team-section {
+  background: #f3f3f3;
+  padding: 60px 0;
+}
+.team-section .team-container {
   max-width: 1280px;
-  margin: 60px auto 30px;
+  margin: 0 auto;
 }
 .team-section .mdl-card {
   min-height: auto;
@@ -479,13 +502,18 @@ p {
   opacity: 1;
 }
 .team-section .information .social-media a {
-  background: #212121;
   border-radius: 100px;
   width: 40px;
   height: 40px;
   display: block;
   float: left;
   margin-right: 3px;
+}
+.team-section .information .social-media .fb {
+  background: #fff url('images/fb.png') center no-repeat;
+}
+.team-section .information .social-media .ig {
+  background: #fff url('images/ig.png') center no-repeat;
 }
 .team-section .information .social-media a svg {
   vertical-align: middle;
