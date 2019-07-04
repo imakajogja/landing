@@ -152,7 +152,9 @@ p {
   }
 
   .imaka-drawer span.mdl-navigation__link.mdl-navigation__link {
-    color: #ffcc00;
+    color: #212121;
+    text-transform: uppercase;
+    font-size: 14px;
   }
 
   .imaka-drawer .mdl-layout-title {
@@ -171,14 +173,14 @@ p {
   height: 800px;
   width: auto;
   background-color: #f3f3f3;
-  background: url('images/slide01.jpg') center 30% no-repeat;
+  background: url('images/family.jpg') center 30% no-repeat;
   background-size: cover;
 }
 
 .logo-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
-  color: #212121;
+  color: #fff;
   font-weight: 500;
 }
 
@@ -198,25 +200,26 @@ p {
     text-decoration: none;
     color: #1cb39b;
     font-weight: 500;
-    border: 2px solid #1cb39b;
     padding: 14px 20px;
     border-radius: 5px;
-    text-transform: uppercase
+    background: #fff;
+    font-family: "Roboto";
   }
 
 .our-family {
   position: relative;
-  background: url('images/family.jpg') center fixed no-repeat;
+  background: url('images/family.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 700px;
+  height: 500px;
 }
 
 .our-family-det {
-  position: relative;
   bottom: 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1280px;
+  margin: 0 auto;
   text-align: center;
   background-color: #37474f;
   background-color: #fff;
@@ -224,7 +227,7 @@ p {
   box-shadow: 4px 41px 47px -29px rgba(0,0,0,.1);
   padding: 32px;
   z-index: 10;
-  transform: translateY(350px);
+  transform: translateY(150px);
   color: #212121;
 }
 
@@ -296,7 +299,6 @@ p {
   height: 400px;
 }
 .featured-section {
-  padding: 300px 0 0;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
@@ -471,6 +473,10 @@ p {
   margin-top: 40px;
   margin-left: 25px;
   z-index: 1;
+  opacity: 0;
+}
+.team-section .information:hover .social-media {
+  opacity: 1;
 }
 .team-section .information .social-media a {
   background: #212121;
@@ -487,7 +493,7 @@ p {
   margin-left: 8px;
 }
 .team-section .information:after {
-    background-color: #ffcc00;
+    background-color: #fff;
     border-radius: 50%;
     content: "";
     height: 20px;
@@ -501,6 +507,7 @@ p {
     width: 20px;
 }
 .team-section .information:hover:after {
+    background: #ffcc00;
     -webkit-transform: scale(100);
     transform: scale(100);
     transition: -webkit-transform .75s ease-in-out;
