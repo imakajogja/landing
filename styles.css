@@ -407,7 +407,6 @@ p {
     transition: transform .35s ease-out;
     transition: transform .35s ease-out,-webkit-transform .45s ease-out;
   }
-
   .imakard-container .mdl-shadow--3dp {
     box-shadow:-6px 20px 40px 0 rgba(0,0,0,.1)
   }
@@ -650,18 +649,13 @@ p {
   }
 
   .imaka-be-together-section {
-    height: 350px;
+    height: 100vh;
   }
 
   .slogan-imaka {
     font-size: 26px;
     margin: 0 16px;
     padding-top: 24px;
-  }
-
-  .join-circle {
-    padding-top: 200px;
-    font-size: 16px;
   }
 
   .join-circle img {
@@ -688,4 +682,18 @@ p {
   max-width: 1280px;
   margin: 0 auto;
   padding: 30px 0;
+}
+@media (max-width: 839px) {
+  .featured .imakard-container {
+    transform: translateY(0);
+  }
+  .imakard-container a:hover ~ .parallax {
+    -webkit-transform: scale(30);
+    transform: scale(30);
+  }
+}
+@media (max-width: 1281px) {
+  .imaka-be-together-section .imaka-banner {
+    padding: 0 40px;
+  }
 }
