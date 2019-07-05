@@ -1,9 +1,11 @@
-html {
-  color:#212121;
-}
 body {
+  color: #212121;
   margin: 0;
   font-family: "Roboto",sans-serif;
+}
+.dark-mode {
+  background: #212121;
+  color: #fff;
 }
 a {
   color:#ffcc00;
@@ -725,4 +727,27 @@ p {
   .imaka-be-together-section .imaka-banner {
     padding: 0 40px;
   }
+}
+
+/* Dark Mode */
+.dark-mode .mdl-layout__content {
+  background: #212121;
+}
+.dark-mode .mdl-card, .dark-mode .discover-us {
+  background: #333333;
+}
+.dark-mode .team-section {
+  background: #252525;
+}
+.dark-mode .imaka-footer {
+  background: #212121;
+}
+.dark-mode .imaka-link {
+  color: #fff!important;
+}
+.dark-mode .imakard-container a, .dark-mode .imakard-container .mdl-card__title-text {
+  color: #fff;
+}
+.dark-mode .imakard-container .mdl-card__supporting-text {
+  color: #fff;
 }
