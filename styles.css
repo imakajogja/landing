@@ -157,8 +157,12 @@ p {
     color: #212121;
     text-transform: uppercase;
     font-size: 14px;
+    font-weight: 600;
+    padding: 6px 16px;
   }
-
+  .imaka-drawer .mdl-navigation__link.mdl-navigation__link .material-icons {
+    margin-right: 10px;
+  }
   .imaka-drawer .mdl-layout-title {
     position: relative;
     background: #ffcc00;
@@ -641,10 +645,6 @@ p {
     opacity: 0;
   }
 
-  .featured-button {
-    display: none;
-  }
-
   .imaka-search-box.is-focused {
     width: calc(100% - 48px);
   }
@@ -658,9 +658,9 @@ p {
   }
 
   .logo-font.slogan-imaka {
-    font-size: 4rem;
-    line-height: 4.3rem;
-    padding-top: 140px;
+    font-size: 3rem;
+    line-height: 3.3rem;
+    padding-top: 80px;
   }
 
   .join-circle img {
@@ -721,6 +721,7 @@ p {
   }
   .logo-font.about {
     width: 100%;
+    font-size: 14px;
   }
 }
 @media (max-width: 1281px) {
@@ -750,4 +751,22 @@ p {
 }
 .dark-mode .imakard-container .mdl-card__supporting-text {
   color: #fff;
+}
+.dark-mode .mdl-layout__drawer {
+  background: #212121;
+}
+.dark-mode .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+  background: #333333;
+}
+.dark-mode .imaka-drawer span.mdl-navigation__link.mdl-navigation__link {
+  color: #ddd;
+}
+.dark-mode .imaka-drawer-separator {
+  background: #444;
+}
+.dark-mode .imaka-drawer .mdl-navigation__link.mdl-navigation__link {
+  color: #fff;
+}
+.dark-mode .imakard-container a:hover {
+  color: #fff!important;
 }
