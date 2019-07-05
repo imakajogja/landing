@@ -185,6 +185,7 @@ p {
   line-height: 1;
   color: #fff;
   font-weight: 500;
+  z-index: 3;
 }
 
 .logo-font.slogan-imaka {
@@ -197,7 +198,7 @@ p {
   margin-top: 30px;
   font-size: 20px;
   line-height: 1.75rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: .3px;
   width: calc(100% - 250px);
 }
@@ -367,13 +368,13 @@ p {
     border-radius: 5px;
   }
   .imakard-container .parallax {
-    background-color: #ffcc00;
+    background-color: transparent;
     border-radius: 50%;
     content: "";
     height: 4.25rem;
     left: -27%;
     position: absolute;
-    top: 35%;
+    top: 90%;
     -webkit-transform: scale(1);
     transform: scale(1);
     transition: -webkit-transform .25s ease-in;
@@ -401,6 +402,7 @@ p {
     color:#444!important;
   }
   .imakard-container a:hover ~ .parallax {
+    background-color: #ffcc00;
     -webkit-transform: scale(20);
     transform: scale(20);
     transition: -webkit-transform .35s ease-out;
@@ -443,6 +445,7 @@ p {
     line-height: 1.25rem;
     text-transform: uppercase;
     width: calc(100% - 64px);
+    z-index: 2;
   }
 
   .imakard-container .mdl-card__actions {
@@ -520,7 +523,7 @@ p {
   margin-left: 8px;
 }
 .team-section .information:after {
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 50%;
     content: "";
     height: 20px;
@@ -678,6 +681,30 @@ p {
   max-width: 1280px;
   margin: 0 auto;
   padding: 30px 0;
+}
+.discover-us-container .mdl-card {
+  box-shadow: none;
+}
+.discover-us-container .bottom {
+  margin-top: 30px;
+}
+.discover-us-container .bottom a {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: #f3f3f3;
+  margin-right: 5px;
+  border-radius: 100%;
+  text-align: center;
+  transition: all 0.35s ease-in-out;
+}
+.discover-us-container .bottom a:hover {
+  background: #ffcc00;
+  box-shadow: -3px 5px 10px 0 rgba(0,0,0,.1);
+}
+.discover-us-container .bottom a img {
+  vertical-align: middle;
+  margin-top: 13px;
 }
 @media (max-width: 839px) {
   .featured .imakard-container {
