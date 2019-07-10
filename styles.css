@@ -287,6 +287,9 @@ p {
     top: -1px;
     vertical-align: middle;
   }
+  a:hover .material-icons {
+    transform: rotate(-45deg);
+  }
 
 .imaka-alt-link {
   text-decoration: none;
@@ -323,15 +326,34 @@ p {
   background-size: cover;
   height: 400px;
 }
+.featured-section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .featured-section .imakard-container {
   padding:0;
+}
+.featured-section .imakard-container .mdl-card .mdl-card__media {
+    background-color: transparent;
+    left: 0%;
+    position: absolute;
+    top: 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition: -webkit-transform .25s ease-in;
+    transition: transform .25s ease-in;
+    transition: transform .25s ease-in,-webkit-transform .25s ease-in;
+    max-width: 100%;
+    opacity: 0.2;
+}
+.featured-section .imakard-container .mdl-card:hover .mdl-card__media {
+  transform: translateY(400px);
 }
 .featured-section .imakard-container .mdl-cell--6-col {
   margin:0;
   width:calc(50% - 3px);
   box-shadow:none;
   margin-right:6px;
-  background:#f3f3f3;
   border-radius:0;
 }
 .featured-section .imakard-container .mdl-cell--6-col:last-child {
@@ -422,7 +444,7 @@ p {
   .imakard-container a:hover {
     color:#444!important;
   }
-  .imakard-container a:hover ~ .parallax {
+  .imakard-container .mdl-card:hover .parallax {
     background-color: #ffcc00;
     -webkit-transform: scale(25);
     transform: scale(25);
@@ -432,13 +454,6 @@ p {
   }
   .imakard-container .mdl-shadow--3dp {
     box-shadow:-6px 20px 40px 0 rgba(0,0,0,.1)
-  }
-  .featured-section .imakard-container .mdl-card .mdl-card__media img,.featured-section .imakard-container .mdl-card .mdl-card__supporting-text,.featured-section .imakard-container .mdl-card .mdl-card__actions,.featured-section .imakard-container .mdl-card .mdl-card__title {
-    transform:translateY(-100px);
-    transition:all .25s ease-in-out;
-  }
-  .featured-section .imakard-container .mdl-card:hover .mdl-card__media img,.featured-section .imakard-container .mdl-card:hover .mdl-card__supporting-text,.featured-section .imakard-container .mdl-card:hover .mdl-card__actions,.featured-section .imakard-container .mdl-card:hover .mdl-card__title {
-    transform:translateY(0);
   }
   .imakard-container .mdl-card__media {
     overflow: hidden;
@@ -488,7 +503,7 @@ p {
   }
 
 .team-section {
-  background: #fff;
+  background: #f3f3f3;
   padding: 60px 0;
 }
 .team-section .team-container {
@@ -497,8 +512,8 @@ p {
 }
 .team-section .mdl-card {
   min-height: auto;
-  box-shadow: 0 12px 32px 0 rgba(0,0,0,.08);
-  border-radius: 5px;
+  box-shadow: 0 12px 32px 0 rgba(0,0,0,.1);
+  border-radius: 8px;
 }
 .team-section .information {
     display: -webkit-box;
@@ -791,4 +806,10 @@ p {
 }
 .dark-mode .imakard-container a:hover {
   color: #fff!important;
+}
+
+@media (min-width: 840px) {
+  .mdl-grid {
+      padding: 0;
+  }
 }
