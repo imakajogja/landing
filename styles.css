@@ -382,6 +382,7 @@ p {
   }
   .imakard-container .mdl-card .mdl-card__title {
     padding-bottom: 32px;
+    z-index:3;
   }
   .imakard-container .mdl-card {
     min-height: inherit;
@@ -431,6 +432,13 @@ p {
   }
   .imakard-container .mdl-shadow--3dp {
     box-shadow:-6px 20px 40px 0 rgba(0,0,0,.1)
+  }
+  .featured-section .imakard-container .mdl-card .mdl-card__media img,.featured-section .imakard-container .mdl-card .mdl-card__supporting-text,.featured-section .imakard-container .mdl-card .mdl-card__actions,.featured-section .imakard-container .mdl-card .mdl-card__title {
+    transform:translateY(-100px);
+    transition:all .25s ease-in-out;
+  }
+  .featured-section .imakard-container .mdl-card:hover .mdl-card__media img,.featured-section .imakard-container .mdl-card:hover .mdl-card__supporting-text,.featured-section .imakard-container .mdl-card:hover .mdl-card__actions,.featured-section .imakard-container .mdl-card:hover .mdl-card__title {
+    transform:translateY(0);
   }
   .imakard-container .mdl-card__media {
     overflow: hidden;
