@@ -354,7 +354,7 @@ p {
   width:calc(50% - 3px);
   box-shadow:none;
   margin-right:6px;
-  border-radius:0;
+  border-radius:8px 8px 0 0;
 }
 .featured-section .imakard-container .mdl-cell--6-col:last-child {
   margin-right:0;
