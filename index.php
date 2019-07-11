@@ -215,22 +215,6 @@
               </div>
               <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/3a.png">
-                    <div class="social-media">
-                      <a href="#" class="fb"></a>
-                      <a href="#" class="ig"></a>
-                    </div>
-                    <div class="summary">
-                        <div class="mdl-title">
-                          <label>SEKRETARIS 2</label>
-                          <h4>Indah Yulia M.</h4>
-                          <h5>Ilmu Komunikasi</h5>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
-                <div class="information">
                     <img class="profile-img" width="111" src="images/pengurus/4.png">
                     <div class="social-media">
                       <a href="#" class="fb"></a>
@@ -295,22 +279,6 @@
               </div>
               <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/6a.png">
-                    <div class="social-media">
-                      <a href="#" class="fb"></a>
-                      <a href="#" class="ig"></a>
-                    </div>
-                    <div class="summary">
-                        <div class="mdl-title">
-                          <label>IT Support</label>
-                          <h4>Rasyid R.</h4>
-                          <h5>Manajemen Informatika</h5>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
-                <div class="information">
                     <img class="profile-img" width="111" src="images/pengurus/7.png">
                     <div class="social-media">
                       <a href="#" class="fb"></a>
@@ -321,38 +289,6 @@
                           <label>Technical Support</label>
                           <h4>Dwi Wahyu</h4>
                           <h5>Informatika</h5>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
-                <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/8.png">
-                    <div class="social-media">
-                      <a href="#" class="fb"></a>
-                      <a href="#" class="ig"></a>
-                    </div>
-                    <div class="summary">
-                        <div class="mdl-title">
-                          <label>Design Support</label>
-                          <h4>Fani Fatika F.</h4>
-                          <h5>Ilmu Komunikasi</h5>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
-                <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/9.png">
-                    <div class="social-media">
-                      <a href="#" class="fb"></a>
-                      <a href="#" class="ig"></a>
-                    </div>
-                    <div class="summary">
-                        <div class="mdl-title">
-                          <label>Technical Support</label>
-                          <h4>Iqbal R.</h4>
-                          <h5>Teknik Komputer</h5>
                         </div>
                     </div>
                 </div>
