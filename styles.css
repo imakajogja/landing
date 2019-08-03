@@ -500,6 +500,10 @@ h1, h2, h3, h4, h5, input, button {
     z-index: 1;
   }
 
+  .imakard-container .mdl-card:hover .mdl-card__title-text {
+    color: #000;
+  }
+
   .imakard-container .mdl-card__supporting-text {
     height: auto;
     color: #fff;
@@ -785,7 +789,7 @@ h1, h2, h3, h4, h5, input, button {
   }
   .logo-font.about {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
   }
   .discover-us-container,.team-section, .featured-section {
     padding: 0;
@@ -857,4 +861,75 @@ h1, h2, h3, h4, h5, input, button {
   color: #fff;
   border-bottom: 1px solid rgba(255,255,255,.075);
   font-family: "Archivo", 'Helvetica', 'Arial', sans-serif;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #000;
+}
+.preloader .loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font: 14px arial;
+}
+.blub {
+  margin: 80px auto;
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.blub-1,
+.blub-2,
+.blub-3 {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+  transform: scale(0.8);
+  animation: blub 1.5s ease-in-out infinite;
+}
+.blub-1 {
+  background: #ffcc0090;
+  width: 150px;
+  height: 150px;
+}
+.blub-2 {
+  top: calc(150px * 0.1);
+  left: calc(150px * 0.1);
+  width: calc(150px * 0.8);
+  height: calc(150px * 0.8);
+  background: #ffcc0060;
+  animation-delay: 0.2s;
+}
+.blub-3 {
+  top: calc(150px * 0.2);
+  left: calc(150px * 0.2);
+  width: calc(150px * 0.6);
+  height: calc(150px * 0.6);
+  background: #ffcc0030;
+  animation-delay: 0.4s;
+}
+@keyframes blub {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
 }

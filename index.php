@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,500|Fira+Sans:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <meta name="theme-color" content="#101010"/>
     <meta property='og:title' content='IMAKA Official | Ikatan Mahasiswa Kebumen Amikom' />
@@ -19,6 +20,15 @@
     <meta property='og:description' content="Kami adalah komunitas mahasiswa di Universitas Amikom Yogyakarta yang beranggotakan mahasiswa yang berasal dari Kebumen. Terbentuk sejak tanggal 15 Juni 2011, bertujuan untuk menjalin silaturahmi diantara mahasiswa Kebumen yang kuliah di Universitas Amikom Yogyakarta." />
   </head>
   <body id="body" class="light-mode">
+    <div class="preloader">
+      <div class="loading">
+        <div class="blub">
+          <div class="blub-1"></div>
+          <div class="blub-2"></div>
+          <div class="blub-3"></div>
+        </div>
+      </div>
+    </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <div class="imaka-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
@@ -37,7 +47,7 @@
           <div class="imaka-navigation-container">
             <nav class="imaka-navigation mdl-navigation">
               <a class="mdl-navigation__link" href="http://blog.imaka.or.id" target="_blank">Blog</a>
-              <a class="mdl-navigation__link" href="https://chat.whatsapp.com/9JEq2ub9ETsJiiLCW2Pzaq" target="_blank">Forum</a>
+              <a class="mdl-navigation__link" href="https://chat.whatsapp.com/KCtAl8dFObiLw4G9buGK9H" target="_blank">Forum</a>
             </nav>
           </div>
           <span class="imaka-mobile-title mdl-layout-title">
@@ -56,7 +66,7 @@
         <a name="top"></a>
         <section class="imaka-be-together-section">
           <div class="imaka-banner">
-            <div class="logo-font slogan-imaka">Ikatan Mahasiswa <br>Kebumen Amikom.</div>
+            <h1 class="logo-font slogan-imaka">Ikatan Mahasiswa <br>Kebumen Amikom.</h1>
             <div class="logo-font about">Kami adalah komunitas mahasiswa di Universitas Amikom Yogyakarta yang beranggotakan mahasiswa yang berasal dari Kebumen. Terbentuk sejak tanggal 15 Juni 2011, bertujuan untuk menjalin silaturahmi diantara mahasiswa Kebumen yang kuliah di Universitas Amikom Yogyakarta.</div>
             <div class="logo-font join-circle">
               <a class="imaka-link" href="http://blog.imaka.or.id" target="_blank">
@@ -68,48 +78,29 @@
         </section>
         <section class="featured">
           <div class="imakard-container mdl-grid">
+            <?php  
+            $sumber = 'https://blog.imaka.or.id/category/event/feed/json';
+            $konten = file_get_contents($sumber);
+            $data = json_decode($konten, true);
+            $i = 0;
+            foreach($data['items'] as $data) {
+              if(++$i > 2) break;
+            ?>
             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card">
               <div class="mdl-card__supporting-text">
                 <span>UPCOMING EVENT</span>
               </div>
               <div class="mdl-card__title">
                 <div class="mdl-card__title-text">
-                  <a href="#">
-                     <p>First Meet Ikatan Mahasiswa Kebumen Amikom 2019.</p>
+                  <a href="<?php echo $data['url'];?>" target="_blank">
+                     <p><?php echo $data['title'];?></p>
                      <i class="material-icons">arrow_forward</i>
                   </a>
                   <label class="parallax"></label>
                 </div>
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-card">
-              <div class="mdl-card__supporting-text">
-                <span>LAST EVENT</span>
-              </div>
-              <div class="mdl-card__title">
-                <div class="mdl-card__title-text">
-                  <a href="#">
-                     <p>Buka bersama di Panti Asuhan Assalam Istiqomah, Pejagoan, Kebumen.</p>
-                     <i class="material-icons">link</i>
-                  </a>
-                  <label class="parallax"></label>
-                </div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-card">
-              <div class="mdl-card__supporting-text">
-                <span>PREVIOUS EVENT</span>
-              </div>
-              <div class="mdl-card__title">
-                <div class="mdl-card__title-text">
-                  <a href="#">
-                     <p>Mudik bareng keluarga IMAKA, libur lebaran 1440H.</p>
-                     <i class="material-icons">link</i>
-                  </a>
-                  <label class="parallax"></label>
-                </div>
-              </div>
-            </div>
+            <?php }?>
           </div>
         </section>
         <section class="featured-section">
@@ -119,26 +110,40 @@
               <h5>Ikuti update terbaru dari blog kami</h5>
             </div>
             <div class="mdl-grid">
+              <?php  
+              $sumber = 'https://blog.imaka.or.id/feed/json';
+              $konten = file_get_contents($sumber);
+              $data = json_decode($konten, true);
+              $d = 0;
+              foreach($data['items'] as $data) {
+                if(++$d > 2) break;
+              ?>
               <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card">
                 <div class="mdl-card__media">
-                  <img src="images/more-from-3.png">
+                  <?php
+                  if(isset($data['image'])) {
+                    echo "<img src=".$data['image'].">";
+                  }
+                  else {}
+                  ?>
                 </div>
                 <div class="mdl-card__supporting-text">
                   <span>BERITA IKATAN</span>
                 </div>
                 <div class="mdl-card__title">
                   <div class="mdl-card__title-text">
-                    <p>Website official Ikatan Mahasiswa Kebumen Amikom resmi telah aktif dan siap untuk dikunjungi di www.imaka.or.id.</p>
+                    <p><?php echo $data['title'];?>.</p>
                   </div>
                 </div>
                 <div class="mdl-card__actions">
-                  <a class="imaka-link" href="" data-upgraded=",MaterialButton">
+                  <a class="imaka-link" href="<?php echo $data['url'];?>" target="_blank" data-upgraded=",MaterialButton">
                     Baca Lagi
                     <i class="material-icons">arrow_forward</i>
                   </a>
                   <label class="parallax"></label>
                 </div>
               </div>
+              <?php }?>
             </div>
           </div>
         </section>
@@ -151,7 +156,7 @@
             <div class="imakard-team mdl-grid">
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/1.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/1.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/andriawan.husnu" class="fb"></a>
                       <a href="https://www.instagram.com/andriawanhusnu26" class="ig"></a>
@@ -167,7 +172,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/2.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/2.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/faridumar.fajar" class="fb"></a>
                       <a href="https://www.instagram.com/faridumarfajar" class="ig"></a>
@@ -183,7 +188,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/3.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/3.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/linda.tari2" class="fb"></a>
                       <a href="https://www.instagram.com/linda.tari2" class="ig"></a>
@@ -199,7 +204,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/4.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/4.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/andaeni.andaeni" class="fb"></a>
                       <a href="https://www.instagram.com/andae_" class="ig"></a>
@@ -215,7 +220,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/4a.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/4a.png">
                     <div class="social-media">
                       <a href="https://www.instagram.com/sofi12_05" class="ig"></a>
                     </div>
@@ -230,7 +235,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/6.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/6.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/yanuaraditia99" class="fb"></a>
                       <a href="https://www.instagram.com/yanuaraditia" class="ig"></a>
@@ -246,9 +251,10 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/6a.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/6a.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/rasyiidz.ridlla" class="fb"></a>
+                      <a href="https://www.instagram.com/rasyd_r298" class="ig"></a>
                     </div>
                     <div class="summary">
                         <div class="mdl-title">
@@ -261,7 +267,7 @@
               </div>
               <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone mdl-card">
                 <div class="information">
-                    <img class="profile-img" width="111" src="images/pengurus/7.png">
+                    <img class="profile-img" width="111" alt="loading" src="images/pengurus/7.png">
                     <div class="social-media">
                       <a href="https://www.facebook.com/ipmawanwahyu" class="fb"></a>
                       <a href="https://www.instagram.com/dwpa27_/" class="ig"></a>
@@ -308,5 +314,11 @@
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      setTimeout(function(){ $('.preloader').fadeOut() }, 360);
+    })
+    </script>
   </body>
 </html>
