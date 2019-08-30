@@ -58,6 +58,14 @@ h1,h2,h3,h4,h5,h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #fff19c;
 }
+::-moz-selection {
+  color: #677282;
+  background: #ffcc00;
+}
+::selection {
+  color: #677282; 
+  background: #ffcc00;
+}
 .bg-primer {
     background: #ffcc00;
 }
@@ -207,7 +215,7 @@ h1,h2,h3,h4,h5,h6 {
     background: #fff;
 }
 .team .card:hover .first {
-    transform: translateY(-78px);
+    transform: translateY(-100px);
     padding-top: 10px;
 }
 .team .card .first span {
@@ -220,10 +228,14 @@ h1,h2,h3,h4,h5,h6 {
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: 0;
     transition: all .2s ease-in-out;
     transform: translateY(200px);
     padding: 0 20px 20px;
     background: #fff;
+}
+.team .card:hover small {
+    display:none;
 }
 .team .card .menu-list {
     margin-left: 0;
@@ -234,7 +246,7 @@ h1,h2,h3,h4,h5,h6 {
     border-radius: 10px;
     padding: 5px 10px;
     margin-bottom: 4px;
-    font-size: 14px;
+    font-size: 12px;
 }
 .team .card .menu-list li:last-child {
     margin-top: 10px;
@@ -258,6 +270,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 .team .card:hover .second {
     transform: translateY(0);
+    opacity: 1;
 }
 /* Cta */
 .section.is-contact {
@@ -388,16 +401,15 @@ footer .social-media ul li i {
 
 }
 @media screen and (max-width: 1023px) {
-    .team .card .menu-list li:not(:last-child) {
-        font-size: 13px;
-    }
     .navbar {
         position: fixed;
         transform: translateY(-70px);
         left: 0;
         right: 0;
+        top: 0;
         background-color: rgba(0,0,0,0.9);
         border-bottom: 1px solid #e0e0e020;
+        transition: all .11s ease-in-out;
     }
     .navbar.on-scroll {
         transform: translateY(0)
@@ -456,7 +468,7 @@ footer .social-media ul li i {
         margin-top: 5px;
     }
     .team .card:hover img {
-        transform: scale(.4) translateY(-130px);
+        transform: scale(.4) translateY(-120px);
         border: 5px solid #fff;
     }
     .team .card .second {
@@ -469,10 +481,31 @@ footer .social-media ul li i {
         margin:10px
     }
 }
+@media (min-width:1080px) and (max-width: 1280px) {
+    .team .card img {
+        width:100px;
+        height:100px;
+    }
+    .team .card:hover img {
+        transform: scale(.7) translateY(-50px);
+    }
+}
 @media screen and (max-width: 768px) {
     .team .card {
         margin: 5px!important;
         width: calc(50vw - 26px)!important;
+    }
+    .team .card:hover .first {
+        transform: translateY(-80px);
+    }
+    .team .card .menu-list li:not(:last-child) {
+        font-size:11px;
+    }
+    .team .card:hover span {
+        padding-bottom:10px;
+    }
+    .team .card .second {
+        padding-top:0;
     }
 }
 </style>
@@ -481,7 +514,7 @@ footer .social-media ul li i {
     <header class="navbar" id="header" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
+                <a class="navbar-item" href="https://imaka.or.id">
                 <img src="https://imaka.or.id/images/imaka-logo.png">
                 </a>
 
@@ -560,9 +593,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> IF</li>
+                            <li><i class="lni-bookmark"></i> Informatika</li>
                             <li><i class="lni-plane"></i> Buluspesantren</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/andriawan.husnu"><i class="lni-facebook"></i></a><a href="https://instagram.com/andriawanhusnu26"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -574,9 +607,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> Ilkom</li>
+                            <li><i class="lni-bookmark"></i> Ilmu Komunikasi</li>
                             <li><i class="lni-plane"></i> Pejagoan</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/faridumar.fajar"><i class="lni-facebook"></i></a><a href="https://instagram.com/faridumarfajar"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -588,9 +621,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> SI</li>
+                            <li><i class="lni-bookmark"></i> Sistem Informasi</li>
                             <li><i class="lni-plane"></i> Klirong</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/linda.tari2"><i class="lni-facebook"></i></a><a href="https://instagram.com/linda.tari2"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -602,9 +635,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> IF</li>
+                            <li><i class="lni-bookmark"></i> Informatika</li>
                             <li><i class="lni-plane"></i> Kutowinangun</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/daplunonthesetered.setered"><i class="lni-facebook"></i></a><a href="https://instagram.com/sofi12_05"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -616,9 +649,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> SI</li>
+                            <li><i class="lni-bookmark"></i> Sistem Informasi</li>
                             <li><i class="lni-plane"></i> Kutowinangun</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/tya.ningsih.7902"><i class="lni-facebook"></i></a><a href="https://instagram.com/adhityahoran"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -632,9 +665,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> TI</li>
+                            <li><i class="lni-bookmark"></i> Teknik Informatika</li>
                             <li><i class="lni-plane"></i> Karangsambung</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/ratih.anggarini.7"><i class="lni-facebook"></i></a><a href="https://instagram.com/ratihang_"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -646,9 +679,9 @@ footer .social-media ul li i {
                     </div>
                     <div class="second">
                         <ul class="menu-list">
-                            <li><i class="lni-bookmark"></i> IF</li>
+                            <li><i class="lni-bookmark"></i> Informatika</li>
                             <li><i class="lni-plane"></i> Karanggayam</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/yanuaraditia99"><i class="lni-facebook"></i></a><a href="https://instagram.com/yanuaraditia"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -662,7 +695,7 @@ footer .social-media ul li i {
                         <ul class="menu-list">
                             <li><i class="lni-bookmark"></i> MI</li>
                             <li><i class="lni-plane"></i> Kutowinangun</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/rasyiidz.ridlla"><i class="lni-facebook"></i></a><a href="https://instagram.com/rasyd_r298"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -676,7 +709,7 @@ footer .social-media ul li i {
                         <ul class="menu-list">
                             <li><i class="lni-bookmark"></i> IF</li>
                             <li><i class="lni-plane"></i> Sempor</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://acebook.com/ipmawanwahyu"><i class="lni-facebook"></i></a><a href="https://instagram.com/dwpa27_"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -690,7 +723,7 @@ footer .social-media ul li i {
                         <ul class="menu-list">
                             <li><i class="lni-bookmark"></i> IF</li>
                             <li><i class="lni-plane"></i> Kebumen</li>
-                            <li><a href=""><i class="lni-facebook"></i></a><a href=""><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://facebook.com/MoreSweetThanRevenge"><i class="lni-facebook"></i></a><a href="https://instagram.com/wahyulesti"><i class="lni-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -773,13 +806,9 @@ footer .social-media ul li i {
                     element.className += " " + name;
                 }
             }
-            else if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                var element = document.getElementById("header");
-                element.className = element.className.replace(/ \bon-scroll\b/g, "");
-            }
             else {
                 var element = document.getElementById("header");
-                element.className = element.className.replace(/ \bon-scroll\b/g, "");
+                element.className = "navbar";
             }
         }
         
