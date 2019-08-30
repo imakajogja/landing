@@ -27,12 +27,11 @@
     <link rel="alternate" href="https://imaka.or.id/" hreflang="en-US">
     <link rel="canonical" href="https://imaka.or.id/">
     <link rel="icon" href="https://imaka.or.id/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media='screen' href="style.css">
-    <style>
+<style>
 html,body {
     font-family: "Roboto",sans-serif;
     color: #999;
@@ -68,11 +67,88 @@ h1,h2,h3,h4,h5,h6 {
 .bg-purple {
     background: rgba(145, 112, 169, 0.1)
 }
+/* Preload */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #000;
+}
+
+.loader {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: calc(50vw - 30px);
+  z-index:3;
+  border: 4px solid #ffcc00;
+  top: calc(50vh - 30px);
+  animation: loader 2s infinite ease;
+  display: flex;
+  overflow: hidden;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #ffcc00;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  25% {
+    transform: rotate(180deg);
+  }
+  
+  50% {
+    transform: rotate(180deg);
+  }
+  
+  75% {
+    transform: rotate(360deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  
+  25% {
+    height: 0%;
+  }
+  
+  50% {
+    height: 100%;
+  }
+  
+  75% {
+    height: 100%;
+  }
+  
+  100% {
+    height: 0%;
+  }
+}
+/* Title */
 .hero.is-warning .subtitle {
     color: rgba(0,0,0,.6)
 }
 .title {
-    color: #333;
+    color: #677282;
     font-weight: 500;
 }
 .title.pake-pita {
@@ -173,8 +249,8 @@ h1,h2,h3,h4,h5,h6 {
 .team .card img {
     margin: 20px auto;
     border-radius: 100%;
-    width: 120px;
-    height: 120px;
+    max-width: 120px;
+    max-height: 120px;
     transition: all .15s ease-in-out;
     transition-delay: .05s;
 }
@@ -222,15 +298,22 @@ h1,h2,h3,h4,h5,h6 {
     right: 0;
     transition: all .2s ease-in-out;
     transform: translateY(200px);
-    padding: 10px 20px 20px;
+    padding: 0 20px 20px;
     background: #fff;
 }
 .team .card .menu-list {
     margin-left: 0;
     font-size: 15px;
 }
+.team .card .menu-list li:not(:last-child) {
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
 .team .card .menu-list li:last-child {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .team .card .menu-list a {
     display: inherit;
@@ -239,8 +322,8 @@ h1,h2,h3,h4,h5,h6 {
     border-radius: 100px;
     width: 29px;
     height: 29px;
-    background: #677282;
-    color: #fff;
+    background: #ffcc00;
+    color: #111111;
     margin-right: 4px;
 }
 .team .card .menu-list i {
@@ -341,7 +424,7 @@ footer .social-media ul li i {
         color: #677282;
     }
     .navbar-link:not(.is-arrowless) {
-        padding: .75rem 2.5rem!important;
+        padding: calc(.75rem + 2px) 2.5rem!important;
         padding-left: 1.5rem!important;
     }
     .navbar-link:not(.is-arrowless)::after {
@@ -380,7 +463,10 @@ footer .social-media ul li i {
     }
 
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
+    .team .card .menu-list li:not(:last-child) {
+        font-size: 13px;
+    }
     .navbar {
         position: fixed;
         transform: translateY(-70px);
@@ -429,16 +515,15 @@ footer .social-media ul li i {
         border:1px solid #e0e0e020;
         border-radius: 10px;
     }
-    .front-banner h1 {
+    .section h1 {
         font-size: 35px;
         margin-bottom: 5px;
     }
-    .front-banner .subtitle {
+    .section .subtitle {
         font-size: 18px;
     }
     .team .card {
-        margin: 5px;
-        width: calc(50vw - 26px)!important;
+        margin: 0px;
         padding-left: 0;
         padding-right: 0;
         height: 220px;
@@ -454,9 +539,26 @@ footer .social-media ul li i {
         padding: 10px;
     }
 }
-    </style>
+@media screen and (max-width: 1444px) {
+    .team .is-3-desktop.card {
+        width: calc(18vw - 34px);
+        margin:10px
+    }
+}
+@media screen and (max-width: 768px) {
+    .team .card {
+        margin: 5px!important;
+        width: calc(50vw - 26px)!important;
+    }
+}
+</style>
 </head>
 <body>
+    <div class="preloader">
+        <span class="loader">
+            <span class="loader-inner"></span>
+        </span>
+    </div>
     <header class="navbar" id="header" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
@@ -484,7 +586,7 @@ footer .social-media ul li i {
                             <li class="navbar-item"><a href="https://instagram.com/imakajogja">Feed</a></li>
                             <li class="navbar-item"><a href="https://facebook.com/ImakaAmikom">Facebook</a></li>
                             <hr class="navbar-divider">
-                            <li class="navbar-item"><a href="mailto:imakajogja@outlook.co.id">Official E-mail</a></li>
+                            <li class="navbar-item"><a href="mailto:imaka@outlook.co.id">Official E-mail</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -497,9 +599,9 @@ footer .social-media ul li i {
                 <div class="column is-6" data-aos="fade-up" data-aos-anchor-placement="top-center">
                     <div class="section-header">
                         <h1 class="title is-spaced">Bersatu kita kompak, bertemu kita ngapak </h1>
-                        <h2 class="subtitle is-3">Kami merangkul dan menghubungkan mahasiswa kebumen yang berkuliah di lingkup amikom yogyakarta</h2>
+                        <h2 class="subtitle is-4">Kami merangkul dan menghubungkan mahasiswa kebumen yang berkuliah di lingkup amikom yogyakarta</h2>
                         <div class="field is-grouped">
-                            <div class="control"> <a class="button is-primary is-medium" href="https://chat.whatsapp.com/KCtAl8dFObiLw4G9buGK9H">Pengen gabung?</a> </div>
+                            <div class="control"> <a class="button is-primary is-medium" href="javascript:void(0)" onclick="location.href='https://chat.whatsapp.com/KCtAl8dFObiLw4G9buGK9H'">Pengen gabung?</a> </div>
                         </div>
                     </div>
                 </div>
@@ -520,7 +622,7 @@ footer .social-media ul li i {
                         <h2 class="title is-2 is-spaced">Mari belajar bersama<span class="spacer is-horizontal is-05"></span><span class="tag is-white">Baru</span> </h2>
                         <h2 class="subtitle is-4">Gabung di repositori kami dan ayo belajar bareng tentang teknologi, komputer?? Apa saja, halaman ini juga bisa kamu lihat disitu lho!</h2>
                         <div class="field is-grouped">
-                            <div class="control"> <a class="button is-white is-medium" href="https://github.com/imakajogja"><i class="lni-github-original size-sm"></i>Sinau Bareng</a> </div>
+                            <div class="control"> <a class="button is-white is-medium" href="javascript:void(0)" onclick="location.href='https://github.com/imakajogja'"><i class="lni-github-original size-sm"></i>Sinau Bareng</a> </div>
                         </div>
                     </div>
                 </div>
@@ -531,7 +633,7 @@ footer .social-media ul li i {
         <div class="container">
             <h2 class="title is-2 is-spaced has-text-centered pake-pita">Kepengurusan</h2>
             <div class="columns is-vcentered is-fullhd team-list">
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/1.png">
                     <div class="first">
                         <span>Andriawan Husnu S</span><br>
@@ -545,7 +647,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/2.png">
                     <div class="first">
                         <span>Farid Umar Fajar</span><br>
@@ -559,7 +661,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/3.png">
                     <div class="first">
                         <span>Linda Lestari</span><br>
@@ -573,7 +675,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/4a.png">
                     <div class="first">
                         <span>Khadidatus Sofro'a</span><br>
@@ -587,7 +689,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/4.png">
                     <div class="first">
                         <span>Aditya S</span><br>
@@ -603,7 +705,7 @@ footer .social-media ul li i {
                 </div>
             </div>
             <div class="columns is-fullhd team-list">
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/10.png">
                     <div class="first">
                         <span>Ratih Anggarini</span><br>
@@ -617,7 +719,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/6.png">
                     <div class="first">
                         <span>Yanuar Aditia</span><br>
@@ -631,7 +733,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/6a.png">
                     <div class="first">
                         <span>Rasyid Ridla</span><br>
@@ -645,7 +747,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/7.png">
                     <div class="first">
                         <span>Dwi Wahyu P A</span><br>
@@ -659,7 +761,7 @@ footer .social-media ul li i {
                         </ul>
                     </div>
                 </div>
-                <div class="column is-6 is-4-mobile is-6-touch is-2-fullhd card" data-aos="fade-up">
+                <div class="column is-6 is-6-mobile is-3-tablet is-3-desktop is-4-touch is-2-fullhd card" data-aos="fade-up">
                     <img src="https://imaka.or.id/images/pengurus/9.png">
                     <div class="first">
                         <span>Wahyu Lestiadi R</span><br>
@@ -732,6 +834,9 @@ footer .social-media ul li i {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        $(document).ready(function(){
+        setTimeout(function(){ $('.preloader').fadeOut() }, 1000);
+        })
         AOS.init();
         $(document).ready(function() {
         $(".navbar-burger").click(function() {
@@ -761,6 +866,7 @@ footer .social-media ul li i {
                 element.className = element.className.replace(/ \bon-scroll\b/g, "");
             }
         }
+        
     </script>
 </body>
 </html>
