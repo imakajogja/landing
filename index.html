@@ -33,14 +33,16 @@
     <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media='screen' href="style.css">
 </head>
-<body>
+<body id="body">
     <header class="navbar" id="header" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://imaka.or.id">
-                <img src="https://imaka.or.id/images/imaka-logo.png">
-                </a>
-
+                <h1 class="title is-4 navbar-item">
+                    <a class="navbar-item" href="https://imaka.or.id">
+                        <img src="https://imaka.or.id/images/48.png">IMAKA
+                    </a>
+                </h1>
+                <button onclick="toggleDarkLight()"><i class="lni-sun" id="icons-mobile"></i></button>
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -64,11 +66,12 @@
                             <li class="navbar-item"><a href="mailto:imaka@outlook.co.id">Official E-mail</a></li>
                         </ul>
                     </li>
+                    <li class="navbar-item has-icon"><button onclick="toggleDarkLight()"><i class="lni-sun" id="icons"></i></button></li>
                 </ul>
             </div>
         </div>
     </header>
-    <section class="section front-banner">
+    <section class="section front-banner" id="front-banner">
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6" data-aos="fade-up" data-aos-anchor-placement="top-center">
@@ -320,9 +323,16 @@
             scrollFunction()
         };
         function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            if (document.body.scrollTop > 77 || document.documentElement.scrollTop > 77) {
                 var element, name, arr;
                 element = document.getElementById("header");
+                name = "on-scroll";
+                arr = element.className.split(" ");
+                if (arr.indexOf(name) == -1) {
+                    element.className += " " + name;
+                }
+                var element, name, arr;
+                element = document.getElementById("front-banner");
                 name = "on-scroll";
                 arr = element.className.split(" ");
                 if (arr.indexOf(name) == -1) {
@@ -332,9 +342,21 @@
             else {
                 var element = document.getElementById("header");
                 element.className = "navbar";
+                document.getElementById("front-banner").className="section front-banner";
             }
         }
-        
+        function toggleDarkLight() {
+            var body = document.getElementById("body");
+            var currentClass = body.className;
+            body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+
+            var body = document.getElementById("icons");
+            var currentClass = body.className;
+            body.className = currentClass == "lni-night" ? "lni-sun" : "lni-night";
+            var body = document.getElementById("icons-mobile");
+            var currentClass = body.className;
+            body.className = currentClass == "lni-night" ? "lni-sun" : "lni-night";
+        }        
     </script>
 </body>
 </html>

@@ -31,19 +31,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css" rel="stylesheet">
-<style>
-html,body {
+    <style>html,body {
     font-family: "Roboto",sans-serif;
-    color: #999;
+    color: #333;
     scrollbar-color: #ffcc00 #fff;
     scrollbar-width: thin;
+}
+.dark-mode {
+    background: #121212;
+    color: #999;
+}
+.dark-mode .navbar-divider, hr {
+    background: rgba(255,255,255,0.05);
 }
 a {
     color: #000;
 }
+.dark-mode a {
+    color: #ffcc00;
+}
 h1,h2,h3,h4,h5,h6 {
     font-family: "Google Sans",sans-serif;
     font-weight: 400;
+}
+button {
+    outline: none!important;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -75,6 +87,15 @@ h1,h2,h3,h4,h5,h6 {
 .bg-purple {
     background: rgba(145, 112, 169, 0.1)
 }
+.dark-mode .bg-purple .title {
+    color: rgb(145, 112, 169)
+}
+.dark-mode .bg-purple .subtitle {
+    color: rgba(145, 112, 169, 0.8)
+}
+.dark-mode .bg-purple .button.is-primary {
+    background: rgb(145, 112, 169);
+}
 /* Title */
 .hero.is-warning .subtitle {
     color: rgba(0,0,0,.6)
@@ -103,13 +124,21 @@ h1,h2,h3,h4,h5,h6 {
 .navbar {
     font-family: "Google Sans",sans-serif;
     z-index: 999;
+    transition: all .2s ease-in-out;
+}
+.dark-mode .navbar {
+    background: transparent;
+    transition-delay: 0s;
 }
 .navbar-burger {
     position: absolute;
     right: 0;
 }
 .navbar-burger span {
-    background: #fff19c;
+    background: #333;
+}
+.dark-mode .navbar-burger span {
+    background: #ffcc00;
 }
 /* Button */
 .button {
@@ -174,6 +203,9 @@ h1,h2,h3,h4,h5,h6 {
     -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
 }
+.dark-mode .team .card {
+    background: #202020;
+}
 .team .card:hover {
     -webkit-box-shadow: 0 6px 18px 0 rgba(0,0,0,.2);
     box-shadow: 0 6px 18px 0 rgba(0,0,0,.2);
@@ -197,6 +229,9 @@ h1,h2,h3,h4,h5,h6 {
     top: 50px;
     transition: all 0.07s ease-in-out;
 }
+.dark-mode .team .card::before {
+    background: linear-gradient(-45deg, #ffcc00, #f9a602);
+}
 .team .card:hover::before {
     width: 100%;
     height: 50%;
@@ -214,6 +249,9 @@ h1,h2,h3,h4,h5,h6 {
     border-radius: 20px 20px 0 0;
     background: #fff;
 }
+.dark-mode .team .card .first, .dark-mode .team .card .second {
+    background: #202020;
+}
 .team .card:hover .first {
     transform: translateY(-100px);
     padding-top: 10px;
@@ -222,6 +260,9 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 500;
     font-family: "Google Sans",sans-serif;
     color: #677282;
+}
+.dark-mode .card .first small {
+    color: #fff;
 }
 .team .card .second {
     position: absolute;
@@ -241,12 +282,18 @@ h1,h2,h3,h4,h5,h6 {
     margin-left: 0;
     font-size: 15px;
 }
+.dark-mode .team .card .menu-list {
+    color: #f3f3f3;
+}
 .team .card .menu-list li:not(:last-child) {
     background: #f0f0f0;
     border-radius: 10px;
     padding: 5px 10px;
     margin-bottom: 4px;
     font-size: 12px;
+}
+.dark-mode .team .card .menu-list li:not(:last-child) {
+    background: #252525;
 }
 .team .card .menu-list li:last-child {
     margin-top: 10px;
@@ -305,28 +352,53 @@ h1,h2,h3,h4,h5,h6 {
     margin-right: auto;
 }
 /* Footer */
-footer {
-    background: #fff;
-}
 footer .social-media ul li i {
     vertical-align: middle;
     margin-right: 10px;
 }
 @media screen and (min-width: 1024px) {
-    .navbar .container {
-        padding:15px 0;
+    .navbar.on-scroll {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #fff;
+    }
+    .dark-mode .navbar .navbar-brand .navbar-item {
+        color: #ffcc00;
+    }
+    .dark-mode .navbar.on-scroll {
+        background: #121212;
     }
     .container > .navbar .navbar-brand, .navbar > .container .navbar-brand {
         margin-left: 0;
     }
     .navbar-brand .navbar-item, .navbar-brand .navbar-item:hover {
-        background: #333!important;
         border-radius: 10px;
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .navbar-brand .navbar-item img {
+        width: 48px;
+        max-height: 48px;
+        border-radius: 100%;
+        margin-right: 10px;
     }
     .navbar-end .navbar-item {
         text-align: center;
         position: relative;
         padding: 0;
+    }
+    .navbar-end .navbar-item.has-icon {
+        padding:0;
+    }
+    .navbar-end .navbar-item.has-icon button {
+        border:none;
+        background: transparent;
+        font-size: 20px;
+        color: #677282;
+        box-shadow: none;
+        outline: none;
     }
     .navbar-end .navbar-item:not(:first-child) {
         margin-left: 5px;
@@ -339,6 +411,12 @@ footer .social-media ul li i {
         position: absolute;
         right: 0;
         top: 20%;
+    }
+    .dark-mode .navbar-end .navbar-item:not(:last-child)::before {
+        background: rgba(255,255,255,0.05);
+    }
+    .navbar-item.has-dropdown.is-active .navbar-link, .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link {
+        background: transparent!important;
     }
     .navbar-end .navbar-item::after {
         content: "";
@@ -356,12 +434,12 @@ footer .social-media ul li i {
     }
     .navbar-end .navbar-item a {
         display: block;
-        padding: .5rem 1.5rem;
+        padding: 1.5rem 1.5rem;
         font-weight: 500;
         color: #677282;
     }
     .navbar-link:not(.is-arrowless) {
-        padding: calc(.75rem + 2px) 2.5rem!important;
+        padding: calc(1.5rem + 2px) 2.5rem!important;
         padding-left: 1.5rem!important;
     }
     .navbar-link:not(.is-arrowless)::after {
@@ -372,10 +450,14 @@ footer .social-media ul li i {
         border-radius: 20px;
         border: none;
     }
+    .dark-mode .navbar-dropdown {
+        background: #202020;
+    }
     .navbar-dropdown .navbar-item a {
         display: block;
         width: 100%;
         text-align: left;
+        padding: 5px 20px;
     }
     .navbar-dropdown .navbar-item::after {
         height: 2px;
@@ -398,6 +480,12 @@ footer .social-media ul li i {
         transform: scale(.5) translateY(-85px);
         border: 8px solid #fff;
     }
+    .navbar-brand button {
+        display: none;
+    }
+    .front-banner.on-scroll {
+        margin-top: 77px;
+    }
 
 }
 @media screen and (max-width: 1023px) {
@@ -407,12 +495,43 @@ footer .social-media ul li i {
         left: 0;
         right: 0;
         top: 0;
-        background-color: rgba(0,0,0,0.9);
-        border-bottom: 1px solid #e0e0e020;
+        background-color: rgba(255,255,255,0.9);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
         transition: all .11s ease-in-out;
     }
+    .navbar-item.has-icon {
+        display: none;
+    }
+    .navbar-brand button {
+        position: absolute;
+        width: 50px;
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        right: 50px;
+        line-height: 51px;
+    }
+    .dark-mode .navbar-brand button {
+        color: #ffcc00
+    }
+    .navbar .navbar-brand .navbar-item {
+        margin-bottom: 0;
+        padding: 0;
+        padding-left: 10px;
+    }
+    .navbar-brand .navbar-item img {
+        width: 32px;
+        max-height: 32px;
+        border-radius: 100%;
+        margin-right: 10px;
+    }
     .navbar.on-scroll {
-        transform: translateY(0)
+        transform: translateY(0);
+        background: #fff;
+    }
+    .dark-mode .navbar.on-scroll {
+        background: #121212;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .navbar:not(.on-scroll) .navbar-menu {
         display: none;
@@ -508,16 +627,28 @@ footer .social-media ul li i {
         padding-top:0;
     }
 }
+
+.dark-mode .navbar-end .navbar-item.has-icon button, .dark-mode .navbar-end .navbar-item a, .dark-mode .title  {
+    color: #f3f3f3;
+}
+.dark-mode .learn, .dark-mode .bg-purple {
+    background: #202020;
+}
+.dark-mode .learn .title, .dark-mode .learn .subtitle {
+    color: #ffcc00;
+}
 </style>
 </head>
-<body>
+<body id="body">
     <header class="navbar" id="header" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="https://imaka.or.id">
-                <img src="https://imaka.or.id/images/imaka-logo.png">
-                </a>
-
+                <h1 class="title is-4 navbar-item">
+                    <a class="navbar-item" href="https://imaka.or.id">
+                        <img src="https://imaka.or.id/images/48.png">IMAKA
+                    </a>
+                </h1>
+                <button onclick="toggleDarkLight()"><i class="lni-sun" id="icons-mobile"></i></button>
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -541,11 +672,12 @@ footer .social-media ul li i {
                             <li class="navbar-item"><a href="mailto:imaka@outlook.co.id">Official E-mail</a></li>
                         </ul>
                     </li>
+                    <li class="navbar-item has-icon"><button onclick="toggleDarkLight()"><i class="lni-sun" id="icons"></i></button></li>
                 </ul>
             </div>
         </div>
     </header>
-    <section class="section front-banner">
+    <section class="section front-banner" id="front-banner">
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-6" data-aos="fade-up" data-aos-anchor-placement="top-center">
@@ -797,9 +929,16 @@ footer .social-media ul li i {
             scrollFunction()
         };
         function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            if (document.body.scrollTop > 77 || document.documentElement.scrollTop > 77) {
                 var element, name, arr;
                 element = document.getElementById("header");
+                name = "on-scroll";
+                arr = element.className.split(" ");
+                if (arr.indexOf(name) == -1) {
+                    element.className += " " + name;
+                }
+                var element, name, arr;
+                element = document.getElementById("front-banner");
                 name = "on-scroll";
                 arr = element.className.split(" ");
                 if (arr.indexOf(name) == -1) {
@@ -809,9 +948,21 @@ footer .social-media ul li i {
             else {
                 var element = document.getElementById("header");
                 element.className = "navbar";
+                document.getElementById("front-banner").className="section front-banner";
             }
         }
-        
+        function toggleDarkLight() {
+            var body = document.getElementById("body");
+            var currentClass = body.className;
+            body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+
+            var body = document.getElementById("icons");
+            var currentClass = body.className;
+            body.className = currentClass == "lni-night" ? "lni-sun" : "lni-night";
+            var body = document.getElementById("icons-mobile");
+            var currentClass = body.className;
+            body.className = currentClass == "lni-night" ? "lni-sun" : "lni-night";
+        }        
     </script>
 </body>
 </html>
